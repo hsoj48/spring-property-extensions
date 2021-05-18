@@ -23,10 +23,10 @@ Create a flat file.  The filename will be used as the property key (without file
 >FROM DUAL
 >```
 
-Include the flat file in a PropertySource declaration and use the SingleValuePropertySourceFactory provided by this project.
+Include the flat file in a PropertySource declaration and use the WholeFilePropertySourceFactory provided by this project.
 ```java
 @Configuration
-@PropertySource(value = "classpath:query_1.sql", factory = SingleValuePropertySourceFactory.class)
+@PropertySource(value = "classpath:query_1.sql", factory = WholeFilePropertySourceFactory.class)
 public class TestConfiguration {
     
 }
@@ -55,12 +55,12 @@ public class TestClass {
 }
 ```
 
-Wildcard placeholders are also supported by the SingleValuePropertySourceFactory which will include all matched files in a single PropertySource.  
+Wildcard placeholders are also supported by the WholeFilePropertySourceFactory which will include all matched files in a single PropertySource.  
 
 >Note: PropertySources created in this manner have no particular order within their properties.
 ```java
 @Configuration
-@PropertySource(value = "classpath:*.sql", factory = SingleValuePropertySourceFactory.class)
+@PropertySource(value = "classpath:*.sql", factory = WholeFilePropertySourceFactory.class)
 public class TestConfiguration {
     
 }
